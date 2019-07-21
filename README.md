@@ -50,10 +50,9 @@ with
 ```
 apply plugin: 'com.android.library'
 ```
+    1. Remove the line with `applicationId`
 
-  1. Remove the line with `applicationId`
-
-    1. Add the following under `dependencies` section to `Build.gradle` from `module:app` (not OpenCV project)
+ 1. Add the following under `dependencies` section to `Build.gradle` from `module:app` (not OpenCV project)
 ```
 dependencies {
     ...
@@ -61,7 +60,7 @@ dependencies {
 }
 ```
 
- 1. Copy over `so` files to your project. (https://stackoverflow.com/questions/27406303/opencv-in-android-studio)
+1. Copy over `so` files to your project. (https://stackoverflow.com/questions/27406303/opencv-in-android-studio)
 
  1. Copy `sdk/native/libs` folder to your Android project under 'app/src/main'
 
@@ -93,7 +92,8 @@ Facial detection is definitely one of those tasks.
 JNI will bridge between your project's Android Java and OpenCV library's C/C++.
 
 
-TBA
+# TBA
+
 * Recompile `detection_based_tracker`
 
 ** Open `build.gradle` under your `module:app` and add the following under `default config` section
