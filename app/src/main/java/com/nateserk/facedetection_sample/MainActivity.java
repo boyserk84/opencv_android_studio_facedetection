@@ -34,8 +34,7 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Opening up a camera!", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                Log.d(TAG,"Starting a new activity");
 
                 // Start Facial Detection Activity
                 Intent intent = new Intent(getApplicationContext(), FacialDetectActivity.class);
