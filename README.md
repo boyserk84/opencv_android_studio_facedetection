@@ -86,6 +86,12 @@ import org.opencv.android.Core;
 
 Compile and Integrate C/C++ to Android Studio Project via JNI (Java Native Interface)
 ===
+This is required if you'd like to utilize or use OpenCV beyond Java API.
+For instance, you'd like to do hardware-intensive task such as using a camera to capture image or video.
+Facial detection is definitely one of those tasks.
+
+JNI will bridge between your project's Android Java and OpenCV library's C/C++.
+
 
 TBA
 * Recompile `detection_based_tracker`
