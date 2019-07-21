@@ -1,18 +1,27 @@
 package com.nateserk.facedetection_sample;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 
+
 public class MainActivity extends AppCompatActivity {
+    static{
+        System.loadLibrary("opencv_java4");
+    }
+
+    public static final String TAG = "MainActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,10 +34,23 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                Snackbar.make(view, "Opening up a camera!", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
+
+                // Start Facial Detection Activity
+                Intent intent = new Intent(getApplicationContext(), FacialDetectActivity.class);
+                startActivityForResult(intent, FacialDetectActivity.ACTIVITY_CODE);
+
             }
         });
+
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        Log.d(TAG, "onActivityResult resultCode=" + resultCode);
     }
 
     @Override
