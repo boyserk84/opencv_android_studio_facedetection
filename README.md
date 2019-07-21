@@ -126,4 +126,4 @@ Although the project in this repo does not have Unity portion, it should give yo
 
 Author
 ===
-[ Nate Kemavaha ] (https://github.com/boyserk84)
+[Nate Kemavaha](https://github.com/boyserk84)
