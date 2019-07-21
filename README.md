@@ -3,7 +3,7 @@ Face Detection with OpenCV Android App
 
 Sample Android app integrated with OpenCV library to utilize realtime face detection and machine learning.
 
-I will show you how to integrate OpenCV Android SDK into your existing Android studio project.
+This guide will show you how to integrate OpenCV Android SDK into your existing Android studio project.
 
 Prerequisite
 ===
@@ -23,23 +23,26 @@ My Setup
 
 If you'd like to run the project, just clone this repo.
 
+Otherwise, the following instructions will guide through steps for OpenCV integration from a scratch.
 
-OpenCV Integration Guide from Scratch
+
+OpenCV Integration
 ===
 
-* Import `OpenCV` Project as your module
-** Extract OpenCV SDK
+1. Import `OpenCV` Project as your module
 
-** Open your Android Studio project.
+ 1. Extract OpenCV SDK
 
-** Right click your project -> `New` -> `Module` -> `Import Gradle Project`.
+ 1. Open your Android Studio project.
 
-** Select `sdk/java` as a source directory.
+ 1. Right click your project -> `New` -> `Module` -> `Import Gradle Project`.
 
-** Uncheck `Replace jars with dependencies` and `Replace library sources with dependencies`.
+ 1. Select `sdk/java` as a source directory.
 
-** Modify `Build.gradle` from `module:openCV` (this is from OpenCV project, not your app)
-*** Replace
+ 1. Uncheck `Replace jars with dependencies` and `Replace library sources with dependencies`.
+
+ 1. Modify `Build.gradle` from `module:openCV` (this is from OpenCV project, not your app)
+    1. Replace the following
 ```
 apply plugin: 'com.android.application'
 ```
@@ -48,9 +51,9 @@ with
 apply plugin: 'com.android.library'
 ```
 
-** Remove the line with `applicationId`
+  1. Remove the line with `applicationId`
 
-*** Add the following under `dependencies` section to `Build.gradle` from `module:app` (not OpenCV project)
+    1. Add the following under `dependencies` section to `Build.gradle` from `module:app` (not OpenCV project)
 ```
 dependencies {
     ...
@@ -58,27 +61,22 @@ dependencies {
 }
 ```
 
-** Copy over `so` files to your project.
-https://stackoverflow.com/questions/27406303/opencv-in-android-studio
+ 1. Copy over `so` files to your project. (https://stackoverflow.com/questions/27406303/opencv-in-android-studio)
 
-** Copy `sdk/native/libs` folder to your Android project under 'app/src/main'
+ 1. Copy `sdk/native/libs` folder to your Android project under 'app/src/main'
 
-** Rename the copied folder to `jniLibs`
+ 1. Rename the copied folder to `jniLibs`
 
-* Statically load OpenCV library into your application project
+2. Statically load OpenCV library into your application project
 
-** Add the following to your Android activity (i.e. MainActivity.java)
+ 2. Add the following to your Android activity (i.e. MainActivity.java)
 ```
 static {
     System.loadLibrary("opencv_java4");
 }
 ```
-
-* Invalidate cache and rebuild the project
-
-** Try if you can reference OpenCV package in your project
-
-** The simple test is to just import one of OpenCV packages to your Android activity.
+ 2. Invalidate cache and rebuild the project
+  2. Try if you can reference OpenCV package in your project and rebuild. The simple test is to just import one of OpenCV packages to your Android activity.
 i.e.
 ```
 import org.opencv.android.Core;
@@ -86,8 +84,10 @@ import org.opencv.android.Core;
 
 
 
-TBA
+Compile and Integrate C/C++ to Android Studio Project via JNI (Java Native Interface)
+===
 
+TBA
 * Recompile `detection_based_tracker`
 
 ** Open `build.gradle` under your `module:app` and add the following under `default config` section
@@ -110,5 +110,12 @@ android {
 ** Copy over `sdk/jni/native` folder to your Android project's OpenCV folder under `native/jni`.
 
 
+Why?
+===
+I did OpenCV integration into the existing `Unity-Android` project as a part of a summer Hackathon on July 17 to July 19, 2019.
+I just wanted to see if I could incorporate facial detection into the project I've been working and learned the basic of facial detection an recognition + Machine learning.
+Although the project in this repo does not have Unity portion, it should give you a groundwork to build on top of it.
 
-
+Author
+===
+Nate Kemavaha
