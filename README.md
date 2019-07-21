@@ -20,22 +20,26 @@ My Setup
 - Android NDK `20`
 - LLDB `3.1`
 
-OpenCV Integration Guide
+
+If you'd like to run the project, just clone this repo.
+
+
+OpenCV Integration Guide from Scratch
 ===
 
-## Import `OpenCV` Project as your module
-# Extract OpenCV SDK
+* Import `OpenCV` Project as your module
+** Extract OpenCV SDK
 
-# Open your Android Studio project.
+** Open your Android Studio project.
 
-# Right click your project -> `New` -> `Module` -> `Import Gradle Project`.
+** Right click your project -> `New` -> `Module` -> `Import Gradle Project`.
 
-# Select `sdk/java` as a source directory.
+** Select `sdk/java` as a source directory.
 
-# Uncheck `Replace jars with dependencies` and `Replace library sources with dependencies`.
+** Uncheck `Replace jars with dependencies` and `Replace library sources with dependencies`.
 
-# Modify `Build.gradle` from `module:openCV` (this is from OpenCV project, not your app)
-## Replace
+** Modify `Build.gradle` from `module:openCV` (this is from OpenCV project, not your app)
+*** Replace
 ```
 apply plugin: 'com.android.application'
 ```
@@ -44,9 +48,9 @@ with
 apply plugin: 'com.android.library'
 ```
 
-## Remove the line with `applicationId`
+** Remove the line with `applicationId`
 
-## Add the following under `dependencies` section to `Build.gradle` from `module:app` (not OpenCV project)
+*** Add the following under `dependencies` section to `Build.gradle` from `module:app` (not OpenCV project)
 ```
 dependencies {
     ...
@@ -54,28 +58,27 @@ dependencies {
 }
 ```
 
-
-## Copy over `so` files to your project.
+** Copy over `so` files to your project.
 https://stackoverflow.com/questions/27406303/opencv-in-android-studio
 
-# Copy `sdk/native/libs` folder to your Android project under 'app/src/main'
+** Copy `sdk/native/libs` folder to your Android project under 'app/src/main'
 
-# Rename the copied folder to `jniLibs`
+** Rename the copied folder to `jniLibs`
 
-## Static load OpenCV library
+* Statically load OpenCV library into your application project
 
-# Add the following to your Android activity (i.e. MainActivity.java)
+** Add the following to your Android activity (i.e. MainActivity.java)
 ```
 static {
     System.loadLibrary("opencv_java4");
 }
 ```
 
-# Invalidate cache and rebuild the project
+* Invalidate cache and rebuild the project
 
-## Try if you can reference OpenCV package in your project
+** Try if you can reference OpenCV package in your project
 
-# The simple test is to just import one of OpenCV packages to your Android activity.
+** The simple test is to just import one of OpenCV packages to your Android activity.
 i.e.
 ```
 import org.opencv.android.Core;
@@ -83,11 +86,11 @@ import org.opencv.android.Core;
 
 
 
-
+TBA
 
 * Recompile `detection_based_tracker`
 
-# Open `build.gradle` under your `module:app` and add the following under `default config` section
+** Open `build.gradle` under your `module:app` and add the following under `default config` section
 ```
 android {
     defaultConfig {
@@ -104,7 +107,7 @@ android {
 }
 ```
 
-# Copy over `sdk/jni/native` folder to your Android project's OpenCV folder under `native/jni`.
+** Copy over `sdk/jni/native` folder to your Android project's OpenCV folder under `native/jni`.
 
 
 
