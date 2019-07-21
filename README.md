@@ -34,6 +34,27 @@ OpenCV Integration Guide
 
 # Uncheck `Replace jars with dependencies` and `Replace library sources with dependencies`.
 
+# Modify `Build.gradle` from `module:openCV` (this is from OpenCV project, not your app)
+## Replace
+```
+apply plugin: 'com.android.application'
+```
+with
+```
+apply plugin: 'com.android.library'
+```
+
+## Remove the line with `applicationId`
+
+## Add the following under `dependencies` section to `Build.gradle` from `module:app` (not OpenCV project)
+```
+dependencies {
+    ...
+    implementation project(':opencv')
+}
+```
+
+
 ## Copy over `so` files to your project.
 https://stackoverflow.com/questions/27406303/opencv-in-android-studio
 
@@ -59,8 +80,6 @@ i.e.
 ```
 import org.opencv.android.Core;
 ```
-
-
 
 
 
