@@ -10,7 +10,7 @@ Prerequisite
 - Android Studio with `CMake` and `NDK` installed.
 - Basic knowledge of JNI (Java Native Interface).
 - OpenCV SDK (Download at https://opencv.org/releases/)
-- Android device (recommended Android N or higher).
+- *Highly recommend* Android device (recommended Android N or higher). IMO, using an emulator works but it is not adequate.
 
 My Setup
 ===
@@ -118,10 +118,12 @@ android {
 
 Why?
 ===
-I did OpenCV integration into the existing `Unity-Android` project as a part of a summer Hackathon on July 17 to July 19, 2019.
-I just wanted to see if I could incorporate facial detection into the project I've been working and learned the basic of facial detection an recognition + Machine learning.
+This project is inspired by the actual Hackathon work I've done during the summer of 2019 (July 17 to July 19).
+I did OpenCV integration into the existing `Unity-Android` project.
+I just wanted to see if I could incorporate facial detection into the project and learned the basic of facial detection an recognition + machine learning.
 Although the project in this repo does not have Unity portion, it should give you a groundwork to build on top of it.
+
 
 Author
 ===
-Nate Kemavaha
+[ Nate Kemavaha ] (https://github.com/boyserk84)
