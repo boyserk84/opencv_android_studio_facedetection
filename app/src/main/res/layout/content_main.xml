@@ -9,11 +9,4 @@
     tools:showIn="@layout/activity_main">
 
 
-
-    <SurfaceView
-        android:id="@+id/surfaceViewCamera"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-    </SurfaceView>
-
 </androidx.constraintlayout.widget.ConstraintLayout>
