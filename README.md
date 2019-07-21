@@ -29,7 +29,7 @@ Otherwise, the following instructions will guide through steps for OpenCV integr
 OpenCV Integration
 ===
 
-1. Import `OpenCV` Project as your module
+## Import `OpenCV` Project as your module
 
  1. Extract OpenCV SDK
 
@@ -41,8 +41,10 @@ OpenCV Integration
 
  1. Uncheck `Replace jars with dependencies` and `Replace library sources with dependencies`.
 
- 1. Modify `Build.gradle` from `module:openCV` (this is from OpenCV project, not your app)
-    1. Replace the following
+## Modify `Build.gradle` from `module:openCV`
+NOTE: This is from OpenCV project, not your app.
+
+ 1. Replace the following
 ```
 apply plugin: 'com.android.application'
 ```
@@ -50,7 +52,8 @@ with
 ```
 apply plugin: 'com.android.library'
 ```
-    1. Remove the line with `applicationId`
+
+ 1. Remove the line with `applicationId` from `Build.gradle`.
 
  1. Add the following under `dependencies` section to `Build.gradle` from `module:app` (not OpenCV project)
 ```
@@ -60,22 +63,23 @@ dependencies {
 }
 ```
 
-1. Copy over `so` files to your project. (https://stackoverflow.com/questions/27406303/opencv-in-android-studio)
+## Copy over `so` files to your project.
+Reference https://stackoverflow.com/questions/27406303/opencv-in-android-studio
 
- 1. Copy `sdk/native/libs` folder to your Android project under 'app/src/main'
+ 2. Copy `sdk/native/libs` folder to your Android project under 'app/src/main'
 
- 1. Rename the copied folder to `jniLibs`
+ 2. Rename the copied folder to `jniLibs`
 
-2. Statically load OpenCV library into your application project
+## Statically load OpenCV library into your application project
 
- 2. Add the following to your Android activity (i.e. MainActivity.java)
+ 3. Add the following to your Android activity (i.e. MainActivity.java)
 ```
 static {
     System.loadLibrary("opencv_java4");
 }
 ```
- 2. Invalidate cache and rebuild the project
-  2. Try if you can reference OpenCV package in your project and rebuild. The simple test is to just import one of OpenCV packages to your Android activity.
+ 3. Invalidate cache and rebuild the project
+  3. Try if you can reference OpenCV package in your project and rebuild. The simple test is to just import one of OpenCV packages to your Android activity.
 i.e.
 ```
 import org.opencv.android.Core;
@@ -116,14 +120,15 @@ android {
 ** Copy over `sdk/jni/native` folder to your Android project's OpenCV folder under `native/jni`.
 
 
-Why?
+Motivation
 ===
-This project is inspired by the actual Hackathon work I've done during the summer of 2019 (July 17 to July 19).
+This project is adapted from the actual Hackathon at work during the summer of 2019 (July 17 to July 19).
 I did OpenCV integration into the existing `Unity-Android` project.
 I just wanted to see if I could incorporate facial detection into the project and learned the basic of facial detection an recognition + machine learning.
-Although the project in this repo does not have Unity portion, it should give you a groundwork to build on top of it.
+Although the project in this repo does not have Unity portion, it should give you a groundwork to build on top of it
+and help avoiding spending too much times (mis) configure your project and search through StackOverflow and Google for the solution.
 
 
-Author
+Authors & Contributors
 ===
-[Nate Kemavaha](https://github.com/boyserk84)
+[Nate Kemavaha](https://github.com/boyserk84) Author
