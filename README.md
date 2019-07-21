@@ -124,7 +124,7 @@ Motivation
 ===
 This project is adapted from the actual Hackathon at work during the summer of 2019 (July 17 to July 19).
 I did OpenCV integration into the existing `Unity-Android` project.
-I just wanted to see if I could incorporate facial detection into the project and learned the basic of facial detection an recognition + machine learning.
+I just wanted to see if I could incorporate `OpenCV` into the project and learned the basic of facial detection and machine learning.
 Although the project in this repo does not have Unity portion, it should give you a groundwork to build on top of it
 and help avoiding spending too much times (mis) configure your project and search through StackOverflow and Google for the solution.
 
