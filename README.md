@@ -20,7 +20,7 @@ My Setup
 - Android NDK `20`
 - LLDB `3.1`
 
-Integration Guide
+OpenCV Integration Guide
 ===
 
 ## Import `OpenCV` Project as your module
@@ -40,6 +40,28 @@ https://stackoverflow.com/questions/27406303/opencv-in-android-studio
 # Copy `sdk/native/libs` folder to your Android project under 'app/src/main'
 
 # Rename the copied folder to `jniLibs`
+
+## Static load OpenCV library
+
+# Add the following to your Android activity (i.e. MainActivity.java)
+```
+static {
+    System.loadLibrary("opencv_java4");
+}
+```
+
+# Invalidate cache and rebuild the project
+
+## Try if you can reference OpenCV package in your project
+
+# The simple test is to just import one of OpenCV packages to your Android activity.
+i.e.
+```
+import org.opencv.android.Core;
+```
+
+
+
 
 
 
