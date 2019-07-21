@@ -34,9 +34,7 @@ Integration Guide
 
 # Uncheck `Replace jars with dependencies` and `Replace library sources with dependencies`.
 
-There are 2 ways to integrate `OpenCV` to your project
-
-* The easiest way is to copy over `so` files to your project.
+## Copy over `so` files to your project.
 https://stackoverflow.com/questions/27406303/opencv-in-android-studio
 
 # Copy `sdk/native/libs` folder to your Android project under 'app/src/main'
@@ -44,7 +42,9 @@ https://stackoverflow.com/questions/27406303/opencv-in-android-studio
 # Rename the copied folder to `jniLibs`
 
 
-* Recompile `OpenCV` with CMake.
+
+
+* Recompile `detection_based_tracker`
 
 # Open `build.gradle` under your `module:app` and add the following under `default config` section
 ```
