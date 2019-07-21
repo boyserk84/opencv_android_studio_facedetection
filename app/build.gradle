@@ -5,10 +5,19 @@ android {
     buildToolsVersion "29.0.1"
     defaultConfig {
         applicationId "com.nateserk.facedetection_sample"
-        minSdkVersion 19
+        minSdkVersion 21
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
+
+//        externalNativeBuild {
+//            cmake {
+//                arguments "-DOpenCV_DIR=" + project(':opencv').projectDir + "/native/jni",
+//                        "-DANDROID_TOOLCHAIN=clang",
+//                        "-DANDROID_STL=c++_static"
+//                targets "detection_based_tracker"
+//            }
+//        }
     }
     buildTypes {
         release {
