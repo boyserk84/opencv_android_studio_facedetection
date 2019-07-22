@@ -1,4 +1,4 @@
-package com.nateserk.facedetection_sample;
+package com.nateserk.facetracker;
 
 import org.opencv.core.Mat;
 import org.opencv.core.MatOfRect;

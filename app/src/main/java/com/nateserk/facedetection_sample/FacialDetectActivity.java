@@ -9,6 +9,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.WindowManager;
 
+import com.nateserk.facetracker.DetectionBasedTracker;
+
 import org.opencv.android.BaseLoaderCallback;
 import org.opencv.android.CameraBridgeViewBase;
 import org.opencv.android.LoaderCallbackInterface;
@@ -53,7 +55,7 @@ public class FacialDetectActivity extends Activity implements CameraBridgeViewBa
     private Mat                    mGray;
     private File mCascadeFile;
     private CascadeClassifier mJavaDetector;
-    private DetectionBasedTracker  mNativeDetector;
+    private DetectionBasedTracker mNativeDetector;
 
     private int                    mDetectorType       = JAVA_DETECTOR;
     private String[]               mDetectorName;
