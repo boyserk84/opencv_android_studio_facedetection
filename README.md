@@ -144,7 +144,17 @@ CMake Error at /YOUR_ROOT_PATH/opencv/native/jni/abi-armeabi-v7a/OpenCVModules.c
 
   * An install or uninstall procedure did not complete successfully.
 ```
-## ANSWER `OpenCV` is looking for `libcpufeatures.a` file from the specific path. In this particular example, it's looking in `sdk/native/jni...`, but it was in `native/jni/...`.
+ANSWER `OpenCV` is looking for `libcpufeatures.a` file from the specific path. In this particular example, it's looking in `sdk/native/jni...`, but it was in `native/jni/...`.
+
+## UnsatisfieldLinkError from Java native interface method.
+```
+java.lang.UnsatisfiedLinkError: No implementation found for long com.nxxxxx.facedetection_sample.DetectionBasedTracker.nativeCreateObject
+```
+
+ANSWER Run the following command on your so file to see if it has the correct method signature.
+```
+nm /YOURPATH/app/build/intermediates/cmake/debug/obj/x86/libdetection_based_tracker.so | grep METHOD_NAME_FROM_DETECTION
+```
 
 
 Motivation
