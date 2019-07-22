@@ -69,15 +69,15 @@ struct DetectorAgregator
     }
 };
 
-JNIEXPORT jlong JNICALL Java_com_nateserk_facedetection_sample__DetectionBasedTracker_nativeCreateObject
+JNIEXPORT jlong JNICALL Java_com_nateserk_facedetection_sample_DetectionBasedTracker_nativeCreateObject
 (JNIEnv * jenv, jclass, jstring jFileName, jint faceSize)
 {
-    LOGD("Java_com_nateserk_facedetection_sample__DetectionBasedTracker_nativeCreateObject enter");
+    LOGD("Java_com_nateserk_facedetection_sample_DetectionBasedTracker_nativeCreateObject enter");
     const char* jnamestr = jenv->GetStringUTFChars(jFileName, NULL);
     string stdFileName(jnamestr);
     jlong result = 0;
 
-    LOGD("Java_com_nateserk_facedetection_sample__DetectionBasedTracker_nativeCreateObject");
+    LOGD("Java_com_nateserk_facedetection_sample_DetectionBasedTracker_nativeCreateObject");
 
     try
     {
@@ -108,14 +108,14 @@ JNIEXPORT jlong JNICALL Java_com_nateserk_facedetection_sample__DetectionBasedTr
         return 0;
     }
 
-    LOGD("Java_com_nateserk_facedetection_sample__DetectionBasedTracker_nativeCreateObject exit");
+    LOGD("Java_com_nateserk_facedetection_sample_DetectionBasedTracker_nativeCreateObject exit");
     return result;
 }
 
-JNIEXPORT void JNICALL Java_com_nateserk_facedetection_sample__DetectionBasedTracker_nativeDestroyObject
+JNIEXPORT void JNICALL Java_com_nateserk_facedetection_sample_DetectionBasedTracker_nativeDestroyObject
 (JNIEnv * jenv, jclass, jlong thiz)
 {
-    LOGD("Java_com_nateserk_facedetection_sample__DetectionBasedTracker_nativeDestroyObject");
+    LOGD("Java_com_nateserk_facedetection_sample_DetectionBasedTracker_nativeDestroyObject");
 
     try
     {
@@ -139,13 +139,13 @@ JNIEXPORT void JNICALL Java_com_nateserk_facedetection_sample__DetectionBasedTra
         jclass je = jenv->FindClass("java/lang/Exception");
         jenv->ThrowNew(je, "Unknown exception in JNI code of DetectionBasedTracker.nativeDestroyObject()");
     }
-    LOGD("Java_com_nateserk_facedetection_sample__DetectionBasedTracker_nativeDestroyObject exit");
+    LOGD("Java_com_nateserk_facedetection_sample_DetectionBasedTracker_nativeDestroyObject exit");
 }
 
-JNIEXPORT void JNICALL Java_com_nateserk_facedetection_sample__DetectionBasedTracker_nativeStart
+JNIEXPORT void JNICALL Java_com_nateserk_facedetection_sample_DetectionBasedTracker_nativeStart
 (JNIEnv * jenv, jclass, jlong thiz)
 {
-    LOGD("Java_com_nateserk_facedetection_sample__DetectionBasedTracker_nativeStart");
+    LOGD("Java_com_nateserk_facedetection_sample_DetectionBasedTracker_nativeStart");
 
     try
     {
@@ -165,13 +165,13 @@ JNIEXPORT void JNICALL Java_com_nateserk_facedetection_sample__DetectionBasedTra
         jclass je = jenv->FindClass("java/lang/Exception");
         jenv->ThrowNew(je, "Unknown exception in JNI code of DetectionBasedTracker.nativeStart()");
     }
-    LOGD("Java_com_nateserk_facedetection_sample__DetectionBasedTracker_nativeStart exit");
+    LOGD("Java_com_nateserk_facedetection_sample_DetectionBasedTracker_nativeStart exit");
 }
 
-JNIEXPORT void JNICALL Java_com_nateserk_facedetection_sample__DetectionBasedTracker_nativeStop
+JNIEXPORT void JNICALL Java_com_nateserk_facedetection_sample_DetectionBasedTracker_nativeStop
 (JNIEnv * jenv, jclass, jlong thiz)
 {
-    LOGD("Java_com_nateserk_facedetection_sample__DetectionBasedTracker_nativeStop");
+    LOGD("Java_com_nateserk_facedetection_sample_DetectionBasedTracker_nativeStop");
 
     try
     {
@@ -191,13 +191,13 @@ JNIEXPORT void JNICALL Java_com_nateserk_facedetection_sample__DetectionBasedTra
         jclass je = jenv->FindClass("java/lang/Exception");
         jenv->ThrowNew(je, "Unknown exception in JNI code of DetectionBasedTracker.nativeStop()");
     }
-    LOGD("Java_com_nateserk_facedetection_sample__DetectionBasedTracker_nativeStop exit");
+    LOGD("Java_com_nateserk_facedetection_sample_DetectionBasedTracker_nativeStop exit");
 }
 
-JNIEXPORT void JNICALL Java_com_nateserk_facedetection_sample__DetectionBasedTracker_nativeSetFaceSize
+JNIEXPORT void JNICALL Java_com_nateserk_facedetection_sample_DetectionBasedTracker_nativeSetFaceSize
 (JNIEnv * jenv, jclass, jlong thiz, jint faceSize)
 {
-    LOGD("Java_com_nateserk_facedetection_sample__DetectionBasedTracker_nativeSetFaceSize -- BEGIN");
+    LOGD("Java_com_nateserk_facedetection_sample_DetectionBasedTracker_nativeSetFaceSize -- BEGIN");
 
     try
     {
@@ -221,14 +221,14 @@ JNIEXPORT void JNICALL Java_com_nateserk_facedetection_sample__DetectionBasedTra
         jclass je = jenv->FindClass("java/lang/Exception");
         jenv->ThrowNew(je, "Unknown exception in JNI code of DetectionBasedTracker.nativeSetFaceSize()");
     }
-    LOGD("Java_com_nateserk_facedetection_sample__DetectionBasedTracker_nativeSetFaceSize -- END");
+    LOGD("Java_com_nateserk_facedetection_sample_DetectionBasedTracker_nativeSetFaceSize -- END");
 }
 
 
-JNIEXPORT void JNICALL Java_com_nateserk_facedetection_sample__DetectionBasedTracker_nativeDetect
+JNIEXPORT void JNICALL Java_com_nateserk_facedetection_sample_DetectionBasedTracker_nativeDetect
 (JNIEnv * jenv, jclass, jlong thiz, jlong imageGray, jlong faces)
 {
-    LOGD("Java_com_nateserk_facedetection_sample__DetectionBasedTracker_nativeDetect");
+    LOGD("Java_com_nateserk_facedetection_sample_DetectionBasedTracker_nativeDetect");
 
     try
     {
@@ -251,5 +251,5 @@ JNIEXPORT void JNICALL Java_com_nateserk_facedetection_sample__DetectionBasedTra
         jclass je = jenv->FindClass("java/lang/Exception");
         jenv->ThrowNew(je, "Unknown exception in JNI code DetectionBasedTracker.nativeDetect()");
     }
-    LOGD("Java_com_nateserk_facedetection_sample__DetectionBasedTracker_nativeDetect END");
+    LOGD("Java_com_nateserk_facedetection_sample_DetectionBasedTracker_nativeDetect END");
 }
