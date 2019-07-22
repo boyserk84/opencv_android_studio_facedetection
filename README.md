@@ -53,9 +53,9 @@ with
 apply plugin: 'com.android.library'
 ```
 
- 1. Remove the line with `applicationId` from `Build.gradle`.
+ 2. Remove the line with `applicationId` from `Build.gradle`.
 
- 1. Add the following under `dependencies` section to `Build.gradle` from `module:app` (not OpenCV project)
+ 3. Add the following under `dependencies` section to `Build.gradle` from `module:app` (not OpenCV project)
 ```
 dependencies {
     ...
@@ -66,7 +66,7 @@ dependencies {
 ## Copy over `so` files to your project.
 Reference https://stackoverflow.com/questions/27406303/opencv-in-android-studio
 
- 2. Copy `sdk/native/libs` folder to your Android project under 'app/src/main'
+ 1. Copy `sdk/native/libs` folder to your Android project under 'app/src/main'
 
  2. Rename the copied folder to `jniLibs`
 
@@ -78,8 +78,8 @@ static {
     System.loadLibrary("opencv_java4");
 }
 ```
- 3. Invalidate cache and rebuild the project
-  3. Try if you can reference OpenCV package in your project and rebuild. The simple test is to just import one of OpenCV packages to your Android activity.
+ 4. Invalidate cache and rebuild the project
+  4. Try if you can reference OpenCV package in your project and rebuild. The simple test is to just import one of OpenCV packages to your Android activity.
 i.e.
 ```
 import org.opencv.android.Core;
@@ -115,7 +115,7 @@ android {
 }
 ```
 
-1. Outside of `default config`, add another `externalNativeBuild` section
+2. Outside of `default config`, add another `externalNativeBuild` section
 ```
 
     externalNativeBuild {
@@ -126,7 +126,7 @@ android {
 
 ```
 
-1. Copy over `sdk/jni/native` folder to your OpenCV project root under `sdk/native/jni`.
+3. Copy over `sdk/jni/native` folder to your OpenCV project root under `sdk/native/jni`.
 
 
 
@@ -146,14 +146,14 @@ CMake Error at /YOUR_ROOT_PATH/opencv/native/jni/abi-armeabi-v7a/OpenCVModules.c
 ```
 ANSWER `OpenCV` is looking for `libcpufeatures.a` file from the specific path. In this particular example, it's looking in `sdk/native/jni...`, but it was in `native/jni/...`.
 
-## UnsatisfieldLinkError from Java native interface method.
+## Issue: UnsatisfieldLinkError from Java native interface method.
 ```
-java.lang.UnsatisfiedLinkError: No implementation found for long com.nxxxxx.facedetection_sample.DetectionBasedTracker.nativeCreateObject
+java.lang.UnsatisfiedLinkError: No implementation found for long com.nxxxxx.facedetection_sample.DetectionBasedTracker.nativeCreateObject()
 ```
 
-ANSWER Run the following command on your so file to see if it has the correct method signature.
+ANSWER Run the following command on `*.so` file to see if it has the correct method signature.
 ```
-nm /YOURPATH/app/build/intermediates/cmake/debug/obj/x86/libdetection_based_tracker.so | grep METHOD_NAME_FROM_DETECTION
+nm /YOURPATH/app/build/intermediates/cmake/debug/obj/x86/libdetection_based_tracker.so | grep NATIVE_METHOD_NAME_FROM_JNI_CLASS
 ```
 
 
@@ -166,6 +166,6 @@ Although the project in this repo does not have Unity portion, it should give yo
 and help avoiding spending too much time (mis)configure your project and search through StackOverflow and Google for the solution.
 
 
-Authors & Contributors
+Author
 ===
-[Nate Kemavaha](https://github.com/boyserk84) Author
+[Nate Kemavaha](https://github.com/boyserk84)

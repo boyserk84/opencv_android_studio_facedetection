@@ -8,6 +8,9 @@ import org.opencv.core.MatOfRect;
  */
 public class DetectionBasedTracker
 {
+    static{
+        System.loadLibrary("opencv_java4");
+    }
     public DetectionBasedTracker(String cascadeName, int minFaceSize) {
         mNativeObj = nativeCreateObject(cascadeName, minFaceSize);
     }
