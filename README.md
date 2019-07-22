@@ -96,11 +96,9 @@ Facial detection is definitely one of those tasks.
 JNI will bridge between your project's Android Java and OpenCV library's C/C++.
 
 
-# TBA
+# Setup external native build for `detection_based_tracker`
 
-* Recompile `detection_based_tracker`
-
-** Open `build.gradle` under your `module:app` and add the following under `default config` section
+1. Open `build.gradle` under your `module:app` and add the following under `default config` section
 ```
 android {
     defaultConfig {
@@ -117,16 +115,45 @@ android {
 }
 ```
 
-** Copy over `sdk/jni/native` folder to your Android project's OpenCV folder under `native/jni`.
+1. Outside of `default config`, add another `externalNativeBuild` section
+```
+
+    externalNativeBuild {
+        cmake {
+            path 'jni/CMakeLists.txt'
+        }
+    }
+
+```
+
+1. Copy over `sdk/jni/native` folder to your OpenCV project root under `sdk/native/jni`.
+
+
+
+# Troubleshooting
+## Issue: CMake error because of unable to find `libcpufeatures``.
+```
+CMake Error at /YOUR_ROOT_PATH/opencv/native/jni/abi-armeabi-v7a/OpenCVModules.cmake:238 (message):
+  The imported target "libcpufeatures" references the file
+
+     "/YOUR_ROOT_PATH/sdk/native/3rdparty/libs/armeabi-v7a/libcpufeatures.a"
+
+  but this file does not exist.  Possible reasons include:
+
+  * The file was deleted, renamed, or moved to another location.
+
+  * An install or uninstall procedure did not complete successfully.
+```
+## ANSWER `OpenCV` is looking for `libcpufeatures.a` file from the specific path. In this particular example, it's looking in `sdk/native/jni...`, but it was in `native/jni/...`.
 
 
 Motivation
 ===
 This project is adapted from the actual Hackathon at work during the summer of 2019 (July 17 to July 19).
 I did OpenCV integration into the existing `Unity-Android` project.
-I just wanted to see if I could incorporate `OpenCV` into the project and learned the basic of facial detection and machine learning.
+I just wanted to see how quickly I could incorporate `OpenCV` into the project and learned the basic of facial detection and machine learning.
 Although the project in this repo does not have Unity portion, it should give you a groundwork to build on top of it
-and help avoiding spending too much times (mis) configure your project and search through StackOverflow and Google for the solution.
+and help avoiding spending too much time (mis)configure your project and search through StackOverflow and Google for the solution.
 
 
 Authors & Contributors
