@@ -16,6 +16,7 @@ and help avoiding spending too much time (mis)configure your project and search 
 `OpenCV Android SDK` is very technical and has a steep learning curve in term of configuration and integration.
 Hopefully, this repo/guide will help alleviate some of the pain.
 
+This guide will show you how to integrate OpenCV Android SDK into your existing Android studio project.
 
 Features
 ===
@@ -29,14 +30,16 @@ Future Iteration
 * Menu to switch front and back camera while facial detection is running.
 
 
-This guide will show you how to integrate OpenCV Android SDK into your existing Android studio project.
-
 Prerequisite
 ===
 - Android Studio with `CMake` and `NDK` installed.
-- Basic knowledge of JNI (Java Native Interface).
 - OpenCV SDK (Download at https://opencv.org/releases/)
 - *Highly recommend* Android device (recommended Android N or higher). IMO, using an emulator works but it is not adequate.
+
+In term of what you need to know before diving into this,
+- More than just a basic knowledge of Android development is required.
+- Basic knowledge of JNI (Java Native Interface).
+- Have a basic understanding of `gradle` build.
 
 My Setup
 ===
