@@ -7,7 +7,9 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.WindowManager;
+import android.widget.Toast;
 
 import com.nateserk.facetracker.DetectionBasedTracker;
 
@@ -44,6 +46,8 @@ public class FacialDetectActivity extends Activity implements CameraBridgeViewBa
     private static final Scalar FACE_RECT_COLOR     = new Scalar(0, 255, 0, 255);
     public static final int JAVA_DETECTOR       = 0;
     public static final int NATIVE_DETECTOR     = 1;
+    public static final int FRONT_CAMERA = 1;
+    public static final int BACK_CAMERA = 0;
 
     private MenuItem mItemFace50;
     private MenuItem mItemFace40;
@@ -148,6 +152,16 @@ public class FacialDetectActivity extends Activity implements CameraBridgeViewBa
         mOpenCvCameraView = findViewById(R.id.surfaceViewCamera);
         mOpenCvCameraView.setVisibility(CameraBridgeViewBase.VISIBLE);
         mOpenCvCameraView.setCvCameraViewListener(this);
+        mOpenCvCameraView.setCameraIndex(FRONT_CAMERA);    // Set to front camera
+
+        // Setup listener
+        mOpenCvCameraView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getApplicationContext(), "Done!", Toast.LENGTH_SHORT).show();
+                finishActivity(ACTIVITY_CODE);
+            }
+        });
     }
 
     @Override
@@ -188,6 +202,9 @@ public class FacialDetectActivity extends Activity implements CameraBridgeViewBa
         mRgba = new Mat();
     }
 
+    private int lastSeenFaces = 0;
+
+    // This is running on a separate thread.
     @Override
     public Mat onCameraFrame(CameraBridgeViewBase.CvCameraViewFrame inputFrame) {
         mRgba = inputFrame.rgba();
@@ -220,6 +237,7 @@ public class FacialDetectActivity extends Activity implements CameraBridgeViewBa
         Rect[] facesArray = faces.toArray();
         if (facesArray.length > 0) {
             Log.d(TAG, "Face(s) have been detected.");
+            lastSeenFaces = facesArray.length;
         }
         for (int i = 0; i < facesArray.length; i++) {
             Imgproc.rectangle(mRgba, facesArray[i].tl(), facesArray[i].br(), FACE_RECT_COLOR, 3);
