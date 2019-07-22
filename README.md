@@ -166,6 +166,8 @@ ANSWER Run the following command on `*.so` file to see if it has the correct met
 ```
 nm /YOURPATH/app/build/intermediates/cmake/debug/obj/x86/libdetection_based_tracker.so | grep NATIVE_METHOD_NAME_FROM_JNI_CLASS
 ```
+If it was there then check if the package has any special character or underscore. JNI does not play well this type of characters.
+i.e. `com.xxx.yyy_zzzzz` package name will cause `UnsatisfieldLinkError`. It's recommended to change its package name to `com.xxx.yyy.zzzzz`.
 
 
 Motivation
