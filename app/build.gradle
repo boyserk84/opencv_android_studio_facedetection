@@ -12,7 +12,7 @@ android {
 
         externalNativeBuild {
             cmake {
-                arguments "-DOpenCV_DIR=" + project(':opencv').projectDir + "/native/jni",
+                arguments "-DOpenCV_DIR=" + project(':opencv').projectDir + "/sdk/native/jni",
                         "-DANDROID_TOOLCHAIN=clang",
                         "-DANDROID_STL=c++_static"
                 targets "detection_based_tracker"

@@ -7,8 +7,9 @@ set(CMAKE_CXX_STANDARD_REQUIRED TRUE)
 set(target detection_based_tracker)
 project(${target} CXX)
 
-set(ANDROID_OPENCV_COMPONENTS "opencv_java4" CACHE STRING "")
+set(ANDROID_OPENCV_COMPONENTS "opencv_java" CACHE STRING "")
 message(STATUS "ANDROID_ABI=${ANDROID_ABI}")
+message(STATUS "ANDROID_OPENCV_COMPONENTS=${ANDROID_OPENCV_COMPONENTS}")
 find_package(OpenCV REQUIRED COMPONENTS ${ANDROID_OPENCV_COMPONENTS})
 
 file(GLOB srcs *.cpp *.c)

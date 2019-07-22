@@ -8,10 +8,10 @@ ifdef OPENCV_ANDROID_SDK
   ifneq ("","$(wildcard $(OPENCV_ANDROID_SDK)/OpenCV.mk)")
     include ${OPENCV_ANDROID_SDK}/OpenCV.mk
   else
-    include ${OPENCV_ANDROID_SDK}/native/jni/OpenCV.mk
+    include ${OPENCV_ANDROID_SDK}/sdk/native/jni/OpenCV.mk
   endif
 else
-  include ../../native/jni/OpenCV.mk
+  include ../../sdk/native/jni/OpenCV.mk
 endif
 
 LOCAL_SRC_FILES  := DetectionBasedTracker_jni.cpp
