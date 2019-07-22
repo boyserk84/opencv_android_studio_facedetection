@@ -4,13 +4,28 @@ Sample Android app integrated with OpenCV library to utilize realtime face detec
 
 Update: 07/21/2019
 
+Description
+===
+This project is adapted from my actual Hackathon at work during the summer of 2019 (July 17 to July 19).
+I just wanted to see how quickly I could incorporate `OpenCV` into the project and learned the basic of facial detection and machine learning.
+Eventually, I made a prototype for accessing a user's account with a human face as a credential for `Unity-Android` project.
+
+Although the project in this repo does not have Unity portion, it should give you a groundwork to build things on top of it
+and help avoiding spending too much time (mis)configure your project and search through StackOverflow and Google for the solution.
+
+`OpenCV Android SDK` is very technical and has a steep learning curve in term of configuration and integration.
+Hopefully, this repo/guide will help alleviate some of the pain.
+
+
 Features
 ===
 * Detect multiple human faces.
+* Distinguish between human and non-human faces.
+* No need to connect to Internet.
 
 Future Iteration
 ===
-* Pop up toaster notifying whenever there is a new face detected.
+* Show a pop up toaster notifying whenever there is a new face detected.
 * Menu to switch front and back camera while facial detection is running.
 
 
@@ -166,17 +181,9 @@ ANSWER Run the following command on `*.so` file to see if it has the correct met
 ```
 nm /YOURPATH/app/build/intermediates/cmake/debug/obj/x86/libdetection_based_tracker.so | grep NATIVE_METHOD_NAME_FROM_JNI_CLASS
 ```
-If it was there then check if the package has any special character or underscore. JNI does not play well this type of characters.
+If it was there then check if the package has any special character or underscore. JNI does not play well with these characters.
 i.e. `com.xxx.yyy_zzzzz` package name will cause `UnsatisfieldLinkError`. It's recommended to change its package name to `com.xxx.yyy.zzzzz`.
 
-
-Motivation
-===
-This project is adapted from the actual Hackathon at work during the summer of 2019 (July 17 to July 19).
-I did OpenCV integration into the existing `Unity-Android` project.
-I just wanted to see how quickly I could incorporate `OpenCV` into the project and learned the basic of facial detection and machine learning.
-Although the project in this repo does not have Unity portion, it should give you a groundwork to build on top of it
-and help avoiding spending too much time (mis)configure your project and search through StackOverflow and Google for the solution.
 
 
 Author
