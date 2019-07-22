@@ -1,7 +1,18 @@
 Face Detection with OpenCV Android App
 ===
-
 Sample Android app integrated with OpenCV library to utilize realtime face detection and machine learning.
+
+Update: 07/21/2019
+
+Features
+===
+* Detect multiple human faces.
+
+Future Iteration
+===
+* Pop up toaster notifying whenever there is a new face detected.
+* Menu to switch front and back camera while facial detection is running.
+
 
 This guide will show you how to integrate OpenCV Android SDK into your existing Android studio project.
 
